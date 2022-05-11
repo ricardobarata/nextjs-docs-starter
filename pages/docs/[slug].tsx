@@ -1,8 +1,8 @@
-// import { Counter } from 'components/counter';
 import { Counter } from 'components/counter';
 import Layout from 'components/Layout';
 import { allDocs, Doc } from 'contentlayer/generated';
 import { useMDXComponent } from 'next-contentlayer/hooks';
+import { ParsedUrlQuery } from 'querystring';
 import { ReactElement } from 'react';
 
 export async function getStaticPaths() {
@@ -13,14 +13,16 @@ export async function getStaticPaths() {
     };
 }
 
-interface Props {
-    doc: Doc;
+interface IParams extends ParsedUrlQuery {
+    slug: string;
 }
 
-export async function getStaticProps({ params }) {
-    const doc: Doc = allDocs.find(
-        (doc) => doc._raw.flattenedPath === params.slug
+export async function getStaticProps(context: { params: IParams }) {
+    const { slug } = context.params;
+    const doc: Doc | undefined = allDocs.find(
+        (doc) => doc._raw.flattenedPath === slug
     );
+
     return {
         props: {
             doc,
