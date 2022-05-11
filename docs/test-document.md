@@ -1,3 +1,8 @@
+---
+title: 'Test document'
+date: 2022-05-09
+---
+
 ## Description
 
 Starter clone (well..kinda) of [docusaurus](https://docusaurus.io/) made with [Next.js](https://nextjs.org/), [ContentLayer](https://www.contentlayer.dev/) and ❤️
