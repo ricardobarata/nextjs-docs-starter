@@ -1,4 +1,5 @@
-import { Counter } from 'components/counter';
+
+import Counter from 'components/Counter';
 import Layout from 'components/Layout';
 import { allDocs, Doc } from 'contentlayer/generated';
 import { useMDXComponent } from 'next-contentlayer/hooks';
